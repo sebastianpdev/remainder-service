@@ -45,5 +45,13 @@ Inicializar aplicación con el comando:
 java -jar ./target/remainderservice-0.0.1-SNAPSHOT.jar
 ```
 
+## AWS
+
+La aplicación se encuentra alojada sobre una instancia EC2, el jar se aloja en un bucket S3.
+
+```
+http://18.219.23.88:8080/
+```
+
 
 
