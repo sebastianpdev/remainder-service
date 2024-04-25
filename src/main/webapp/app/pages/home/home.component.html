@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Test Cases</h1>
+    <form [formGroup]="testCasesForm" (ngSubmit)="onSubmitTestCasesForm()">
+        <div class="form-group">
+            <label for="numberTestCases">Number of Cases:</label>
+            <input type="text" class="form-control" id="numberTestCases" formControlName="numberTestCases"
+            [ngClass]="{'is-invalid': submitted && f['numberTestCases'].errors }">
+            @if (submitted && f['numberTestCases'].errors) {
+                <div class="invalid-feedback">
+                    @if (f['numberTestCases'].errors?.['required']) {
+                        <div>Field is required.</div>
+                    } @if (f['numberTestCases'].errors?.['pattern']) {
+                        <div>Example: 45</div>
+                    }
+                </div>
+            }
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="testCases">Test Cases</label>
+            <input type="text" class="form-control" id="testCases" formControlName="testCases"
+            [ngClass]="{'is-invalid': submitted && f['testCases'].errors }">
+            @if (submitted && f['testCases'].errors) {
+                <div class="invalid-feedback">
+                    @if (f['testCases'].errors?.['required']) {
+                        <div>Field is required.</div>
+                    } @if (f['testCases'].errors?.['pattern']) {
+                    <div>Example: 45 23 3, 66 3 2</div>
+                    <small>- 3 numeros separados por coma.</small>
+                    <small>- Los 3 numeros deben estar separados por espacio en blanco</small>
+                    <small>- Espacio en blanco luego de la coma.</small>
+                }
+                </div>
+            }
+        </div>
+        <br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="button" class="btn btn-warning float-end" (click)="onReset()">Reset</button>
+        </div>
+        <br>
+        <div class="form-group">
+            <h2>Output</h2>
+            <br>
+            <p>{{testCasesOutput}}</p>
+        </div>
+    </form>
+</div>
